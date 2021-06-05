@@ -1,13 +1,18 @@
 const db = require("../models");
 
-// Defining methods for the SolARcALCULATOR
+// Defining methods for the SolARcALCULATOR:
+
+
+// Function to calculate systemsize needed
+// systemSizeNeeded = {monthlykwh (/30)}  divided by {irradiance x.71}
 
 
 
-fetch('https://developer.nrel.gov/api/solar/solar_resource/v1.json?limit=1&api_key=J89k3CiSfltbxqmSjIxUXCzbciQLAh1ZQUQhEGhT&lat=40.0771698&lon=-105.1841239')
-  .then(response => response.json())
-  .then(data => console.log(data));
 
 
-//   }
-// };
+
+//based on the above calculation if systemsizeNeeded is >6  route to less good solar options page
+
+//if systemsizeNeeded is =<6 then route to good solar options page
+
+
