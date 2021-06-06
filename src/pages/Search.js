@@ -5,6 +5,10 @@ import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
 
+
+var lat = [];
+var long = [];
+
 class Search extends Component {
   state = {
     search: "",
@@ -26,15 +30,32 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getDogsOfBreed(this.state.search)
-      .then(res => {
+    API.getLatLong(this.state.search)
+.then(res => {
+      
+       lat.push(res.data[0].lat)
+       long.push(res.data[0].lon)
+    
+console.log(JSON.parse(long))
+console.log(JSON.parse(lat));
         if (res.data.status === "error") {
-          throw new Error(res.data.message);
+          throw new Error(res.data);
         }
-        this.setState({ results: res.data.message, error: "" });
+     
+        this.setState({ results: res.data, error: "" });
       })
       .catch(err => this.setState({ error: err.message }));
-  };
+
+  API.getIrradiance(lat, long)
+  .then(res => {
+    if (res.data.status === "error") {
+      throw new Error(res.data);
+    }
+    this.setState({ results: res.data, error: "" });
+  })
+  .catch(err => this.setState({ error: err.message }));
+};
+
   render() {
     return (
       
