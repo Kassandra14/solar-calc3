@@ -4,12 +4,13 @@ import "./style.css";
 
 
 function SearchForm(props) {
+  console.log(props);
   return (
     <form className="search">
       <div className="form-group">
         <label htmlFor="city">City:</label>
         <input
-          value={props.search}
+          value={props.city}
           onChange={props.handleInputChange}
           name="city"
           type="text"
@@ -19,7 +20,7 @@ function SearchForm(props) {
         />
          <input
           value={props.search}
-          onChange={props.handleInputChange}
+          onChange={props.handleSearchChange}
           name="monthlyKwh"
           type="number"
           className="form-control"
@@ -27,8 +28,8 @@ function SearchForm(props) {
           id="monthlyKwh"
         />
             <input
-          value={props.search}
-          onChange={props.handleInputChange}
+          value={props.cost}
+          onChange={props.handleCostChange}
           name="monthlyCost"
           type="decimal"
           className="form-control"

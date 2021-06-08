@@ -5,16 +5,17 @@ import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
 
-
 var lat = [];
 var long = [];
 
 class Search extends Component {
   state = {
     search: "",
+    city: "",
+    cost: "",
     // breeds: [],
     results: [],
-    error: ""
+    error: "",
   };
 
   // When the component mounts, get a list of all available base breeds and update this.state.breeds
@@ -24,50 +25,62 @@ class Search extends Component {
   //     .catch(err => console.log(err));
   // }
 
-  handleInputChange = event => {
-    this.setState({ search: event.target.value });
-  };
+  handleInputChange = (event) => {
+    this.setState({ city: event.target.value });
 
-  handleFormSubmit = event => {
+   
+  };
+  handleSearchChange = (e) => {
+    this.setState({ search: e.target.value });
+  };
+  handleCostChange = (e) => {
+    this.setState({ cost: e.target.value });
+  };
+  handleFormSubmit = (event) => {
     event.preventDefault();
-    API.getLatLong(this.state.search)
-.then(res => {
-      
-       lat.push(res.data[0].lat)
-       long.push(res.data[0].lon)
-    
-// console.log(JSON.parse(long));
-// console.log(JSON.parse(lat));
+    // var monthlyKwh = (this.state.search)
+    API.getLatLong(this.state.city)
+      // console.log(monthlyKwh);
+      .then((res) => {
+        lat.push(res.data[0].lat);
+        long.push(res.data[0].lon);
+
+        // console.log(JSON.parse(long));
+        // console.log(JSON.parse(lat));
         if (res.data.status === "error") {
           throw new Error(res.data);
         }
         API.getIrradiance(lat, long)
-        .then(res => {
-          console.log(res.data.outputs);
-          if (res.data.status === "error") {
-            throw new Error(res.data);
-          }
-          this.setState({ results: res.data, error: "" });
-        })
-        .catch(err => this.setState({ error: err.message }));
-      });
-      
-      };
-      // .catch(err => this.setState({ error: err.message }));
+          .then((res) => {
+            console.log(res.data.outputs.avg_dni.annual);
+            // var solar  = {monthlykwh % 30)}  % {res.data.outputs.avg_dni.annual x.71}
+            if (res.data.status === "error") {
+              throw new Error(res.data);
+            }
+            // systemSizeNeeded = {monthlykwh (/30)}  divided by {dni x.71}
+            //  if( solar >= 3){
 
-//   API.getIrradiance(lat, long)
-//   .then(res => {
-//     if (res.data.status === "error") {
-//       throw new Error(res.data);
-//     }
-//     this.setState({ results: res.data, error: "" });
-//   })
-//   .catch(err => this.setState({ error: err.message }));
-// };
+            //  }
+            this.setState({ results: res.data, error: "" });
+          })
+          .catch((err) => this.setState({ error: err.message }));
+      });
+  };
+
+  // .catch(err => this.setState({ error: err.message t}));
+
+  //   API.getIrradiance(lat, long)
+  //   .then(res => {
+  //     if (res.data.status === "error") {
+  //       throw new Error(res.data);
+  //     }
+  //     this.setState({ results: res.data, error: "" });
+  //   })
+  //   .catch(err => this.setState({ error: err.message }));
+  // };
 
   render() {
     return (
-      
       <div>
         <Container style={{ minHeight: "80%" }}>
           <h1 className="text-center">Search By Adress</h1>
@@ -80,6 +93,12 @@ class Search extends Component {
           <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
+
+            handleSearchChange={this.handleSearchChange}
+            handleCostChange={this.handleCostChange}
+            city={this.state.city}
+            cost={this.state.cost}
+            search={this.state.search}
             // breeds={this.state.breeds}
           />
           <SearchResults results={this.state.results} />
