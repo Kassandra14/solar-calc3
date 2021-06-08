@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 
 function SearchResults(props) {
+  // console.log(props);
   return (
     <ul className="list-group search-results">
       {props.results.map(result => (

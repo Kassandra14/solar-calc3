@@ -36,25 +36,34 @@ class Search extends Component {
        lat.push(res.data[0].lat)
        long.push(res.data[0].lon)
     
-console.log(JSON.parse(long))
-console.log(JSON.parse(lat));
+// console.log(JSON.parse(long));
+// console.log(JSON.parse(lat));
         if (res.data.status === "error") {
           throw new Error(res.data);
         }
-     
-        this.setState({ results: res.data, error: "" });
-      })
-      .catch(err => this.setState({ error: err.message }));
+        API.getIrradiance(lat, long)
+        .then(res => {
+          console.log(res.data.outputs);
+          if (res.data.status === "error") {
+            throw new Error(res.data);
+          }
+          this.setState({ results: res.data, error: "" });
+        })
+        .catch(err => this.setState({ error: err.message }));
+      });
+      
+      };
+      // .catch(err => this.setState({ error: err.message }));
 
-  API.getIrradiance(lat, long)
-  .then(res => {
-    if (res.data.status === "error") {
-      throw new Error(res.data);
-    }
-    this.setState({ results: res.data, error: "" });
-  })
-  .catch(err => this.setState({ error: err.message }));
-};
+//   API.getIrradiance(lat, long)
+//   .then(res => {
+//     if (res.data.status === "error") {
+//       throw new Error(res.data);
+//     }
+//     this.setState({ results: res.data, error: "" });
+//   })
+//   .catch(err => this.setState({ error: err.message }));
+// };
 
   render() {
     return (
