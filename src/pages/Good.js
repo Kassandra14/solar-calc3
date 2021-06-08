@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-//import ResultsContainer from "../components/ResultsContainer";
+import SearchResults from "../components/SearchResults";
 import API from "../utils/API";
 
 function Good(props) {
@@ -25,16 +25,12 @@ function Good(props) {
               <h1>
                 Your Results:
               </h1>
+              <SearchResults results={this.state.results} />
             </Jumbotron>
           </Col>
         </Row>
         <Row>
           <Col size="md-10 md-offset-1">
-            <article>
-              <h1>S</h1>
-              <p>
-              </p>
-            </article>
           </Col>
         </Row>
         <Row>
