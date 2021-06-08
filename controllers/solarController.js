@@ -4,7 +4,7 @@ const db = require("../models");
 
 
 // Function to calculate systemsize needed
-// systemSizeNeeded = {monthlykwh (/30)}  divided by {irradiance x.71}
+// systemSizeNeeded = {monthlykwh (/30)}  divided by {dni x.71}
 
 
 
