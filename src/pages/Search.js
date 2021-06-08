@@ -14,7 +14,7 @@ class Search extends Component {
     city: "",
     cost: "",
     // breeds: [],
-    results: [],
+    results: null,
     error: "",
   };
 
@@ -50,8 +50,11 @@ class Search extends Component {
         if (res.data.status === "error") {
           throw new Error(res.data);
         }
+
+
         API.getIrradiance(lat, long)
           .then((res) => {
+            const annualDNI = res.data.outputs.avg_dni.annual;
             console.log(res.data.outputs.avg_dni.annual);
             // var solar  = {monthlykwh % 30)}  % {res.data.outputs.avg_dni.annual x.71}
             if (res.data.status === "error") {
@@ -61,7 +64,7 @@ class Search extends Component {
             //  if( solar >= 3){
 
             //  }
-            this.setState({ results: res.data, error: "" });
+            this.setState({ results: annualDNI, error: "" });
           })
           .catch((err) => this.setState({ error: err.message }));
       });
