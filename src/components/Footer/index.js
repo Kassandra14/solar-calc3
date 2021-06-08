@@ -3,8 +3,8 @@ import "./style.css";
 
 function Footer() {
   return (
-    <footer className="footer">
-      <span>Pupster 2017</span>
+    <footer className="footer" style={{ textAlign: "center" }}>
+      <span>SolarCalc 2021</span>
     </footer>
   );
 }
