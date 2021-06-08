@@ -21,7 +21,7 @@ function SearchForm(props) {
           value={props.search}
           onChange={props.handleInputChange}
           name="monthlyKwh"
-          type="number"
+          type="decimal"
           className="form-control"
           placeholder="Type in your monthly energy use in Kwh (you will need a utility bill"
           id="monthlyKwh"

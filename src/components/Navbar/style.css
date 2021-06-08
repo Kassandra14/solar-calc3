@@ -1,3 +1,6 @@
 nav.navbar.navbar-default {
   margin-bottom: 0;
-}
+    min-height: 100px;
+    background: yellowgreen;
+    position: relative;
+  }
