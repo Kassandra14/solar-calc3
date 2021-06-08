@@ -11,6 +11,9 @@ export default {
   },
   getIrradiance: function (lat, long) {
 
-    return axios.get ('https://developer.nrel.gov/api/solar/solar_resource/v1.json?limit=1&api_key=J89k3CiSfltbxqmSjIxUXCzbciQLAh1ZQUQhEGhT&lat=' + lat + '&lon=' + long );
+var lat1 = JSON.parse(lat)
+var long1 = JSON.parse(long)
+console.log(lat1,long1);
+    return axios.get ('https://developer.nrel.gov/api/solar/solar_resource/v1.json?limit=1&api_key=J89k3CiSfltbxqmSjIxUXCzbciQLAh1ZQUQhEGhT&lat=' + lat1 + '&lon=' + long1 );
   }
 };
