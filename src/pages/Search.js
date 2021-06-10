@@ -4,7 +4,8 @@ import Container from "../components/Container";
 import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
-
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Redirect } from 'react-router'
 
 
@@ -55,8 +56,14 @@ class Search extends Component {
             Kwh = this.state.search;
             console.log(Kwh);
             console.log(res.data.outputs.avg_dni.annual);
-            var solar = +Kwh / 30 / (annualDNI * 0.71);
+            var solar = (+Kwh / 30) / (annualDNI * 0.71);
             this.setState({solar: solar });
+            console.log(this.state.solar);
+            if (solar >= 3) {
+              <Redirect to="/bad"/> 
+        } else {
+          <Redirect to="/good"/> 
+        }
             if (res.data.status === "error") {
               throw new Error(res.data);
             }
@@ -65,12 +72,7 @@ class Search extends Component {
           })
           .catch((err) => this.setState({ error: err.message }));
       });
-      console.log(this.state.solar);
-      if (this.state.solar >= 3) {
-        <Redirect to="/bad"/> 
-  } else {
-    <Redirect to="/good"/> 
-  }
+     
   };
 
   
