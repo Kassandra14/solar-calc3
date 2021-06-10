@@ -5,30 +5,25 @@ import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
 
+import { Redirect } from 'react-router'
+
+
 var lat = [];
 var long = [];
-
+var Kwh = "";
 class Search extends Component {
   state = {
     search: "",
     city: "",
     cost: "",
+    solar: "",
     // breeds: [],
     results: null,
     error: "",
   };
 
-  // When the component mounts, get a list of all available base breeds and update this.state.breeds
-  // componentDidMount() {
-  //   API.getBaseBreedsList()
-  //     .then(res => this.setState({ breeds: res.data.message }))
-  //     .catch(err => console.log(err));
-  // }
-
   handleInputChange = (event) => {
     this.setState({ city: event.target.value });
-
-   
   };
   handleSearchChange = (e) => {
     this.setState({ search: e.target.value });
@@ -51,25 +46,33 @@ class Search extends Component {
           throw new Error(res.data);
         }
 
-
         API.getIrradiance(lat, long)
           .then((res) => {
             const annualDNI = res.data.outputs.avg_dni.annual;
+            // const monthlyKwh = 333;
+            Kwh = this.state.search;
+            console.log(Kwh);
             console.log(res.data.outputs.avg_dni.annual);
-            // var solar  = {monthlykwh % 30)}  % {res.data.outputs.avg_dni.annual x.71}
+            var solar = +Kwh / 30 / (annualDNI * 0.71);
+            this.setState({solar: solar });
             if (res.data.status === "error") {
               throw new Error(res.data);
             }
-            // systemSizeNeeded = {monthlykwh (/30)}  divided by {dni x.71}
-            //  if( solar >= 3){
-
-            //  }
+            console.log(solar);
             this.setState({ results: annualDNI, error: "" });
           })
           .catch((err) => this.setState({ error: err.message }));
       });
+      console.log(this.state.solar);
+      if (this.state.solar >= 3) {
+        <Redirect to="/bad"/> 
+  } else {
+    <Redirect to="/good"/> 
+  }
   };
 
+  
+ 
   // .catch(err => this.setState({ error: err.message t}));
 
   //   API.getIrradiance(lat, long)
@@ -96,7 +99,6 @@ class Search extends Component {
           <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
-
             handleSearchChange={this.handleSearchChange}
             handleCostChange={this.handleCostChange}
             city={this.state.city}
