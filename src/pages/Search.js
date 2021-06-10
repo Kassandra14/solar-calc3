@@ -16,8 +16,10 @@ class Search extends Component {
     search: "",
     city: "",
     cost: "",
+
     solar: "",
     // breeds: [],
+
     results: null,
     error: "",
   };
@@ -104,7 +106,6 @@ class Search extends Component {
             city={this.state.city}
             cost={this.state.cost}
             search={this.state.search}
-            // breeds={this.state.breeds}
           />
           <SearchResults results={this.state.results} />
         </Container>

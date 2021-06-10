@@ -2,38 +2,53 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import API from "../utils/API";
+//import ResultsContainer from "../components/ResultsContainer";
 
 function Good(props) {
-  // const [book, setBook] = useState({})
 
-  // // When this component mounts, grab the book with the _id of props.match.params.id
-  // // e.g. localhost:3000/books/599dcb67f0f16317844583fc
-  // const {id} = useParams()
-  // useEffect(() => {
-  //   API.getBook(id)
-  //     .then(res => setBook(res.data))
-  //     .catch(err => console.log(err));
-  // }, [])
 
   return (
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <Jumbotron>
+            
               <h1>
                 Your Results:
               </h1>
-              <SearchResults results={this.state.results} />
-            </Jumbotron>
+
+            
           </Col>
         </Row>
+        <h2>Your Solar Score is {SearchResults.results}</h2>
         <Row>
           <Col size="md-10 md-offset-1">
           </Col>
-        </Row>
+        </Row>        <h4> This is a great solar score! you could potentially save money by investigating installing a solar system at your property.</h4>
+        <h4> Check out the following solar resources:</h4>
         <Row>
+        <Row></Row>
+        <Row></Row>
+        <ul>
+          <li>
+
+          </li>
+          <li>
+
+          </li>
+          <li>
+
+          </li>
+        </ul>
+        
+        <button>Save my score</button>
+        <Row>
+          <Row>
+
+          </Row>
+        </Row>
           <Col size="md-2">
             <Link to="/">← Back to SolarCalc</Link>
           </Col>
