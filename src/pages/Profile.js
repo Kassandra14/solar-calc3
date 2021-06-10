@@ -3,8 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import ResultsContainer from "../components/ResultsContainer";
-
 import API from "../utils/API";
+import SaveButton from '../components/SaveButton'
+import BackButton from '../components/BackButton'
+import "./style.css"
+import "../components/SaveButton/style.css"
 
 function Profile(props) {
   // const [book, setBook] = useState({})
@@ -37,12 +40,23 @@ function Profile(props) {
         </Row>
         <Row>
           <Col size="md-2">
-            <Link to="/">← Back to SolarCalc</Link>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+          <SaveButton to='/profile'>Save My Score</SaveButton>
+    </Col>
+    </Row>
+    <Row>
+    <BackButton to='/about'>Back to SolarCalc</BackButton>       
+    
 
+     </Row>
+         
+     <Row>
+     <Col size="md-2">
+   
+       </Col>
+     </Row>
+ </Container>
+ );
+}  
+  
 
 export default Profile;
