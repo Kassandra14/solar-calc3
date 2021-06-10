@@ -33,7 +33,7 @@ function Navbar() {
           </li>
           <li className="nav-item">
           <Link
-              to="/profile"
+              to="/good"
               className={window.location.pathname === "/good" ? "nav-link active" : "nav-link"}
             >
               Good
@@ -41,7 +41,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
             <Link
-              to="/profile"
+              to="/bad"
               className={window.location.pathname === "/good" ? "nav-link active" : "nav-link"}
             >
               Bad
