@@ -1,3 +1,4 @@
+
 import Alert from "../components/Alert";
 import React, { Component } from "react";
 import Container from "../components/Container";
@@ -13,6 +14,7 @@ class login extends Component {
 
   
   loginFormHandler = async (event) => {
+
   event.preventDefault();
   // Collect values from the login form
   const email = document.querySelector('#email-login').value.trim();
@@ -41,7 +43,9 @@ class login extends Component {
   }
 };
 
+
  signupFormHandler = async (event) => {
+
   event.preventDefault();
   
   const name = document.querySelector('#name-signup').value.trim();
@@ -67,6 +71,7 @@ class login extends Component {
     }
   }
 };
+
 
 // document
 //   .querySelector('.login-form')
@@ -96,3 +101,4 @@ render( ) {
 }
 
 export default login;
+
