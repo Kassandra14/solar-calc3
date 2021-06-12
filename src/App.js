@@ -24,11 +24,16 @@ function App() {
         <Navbar />
         <Wrapper>
           <Route exact path="/" component={About} />
+
+
           <Route exact path="/about" component={About} />
           <Route exact path="/good" component={Good} />
           <Route exact path="/bad" component={Bad} />
           <Route exact path="/login" component={login} />
+
+
           <Route exact path="/logout" component={logout} />
+
           <Route exact path="/search" component={Search} />
         </Wrapper>
         <Footer />

@@ -1,19 +1,23 @@
 [
   {
-    "city": "Music Near Me",
+    "city": "denver",
     "lat": 43,
-    "long": 56 
-
+    "long": 56 ,
+    "score": 6
   },
   {
-    "city": "The Ultimate Tech Quiz",
+    "city": "detroit",
     "lat": 43,
-    "long": 56 
+    "long": 56 ,
+    "score": 3
   
   },
   {
-    "city": "Roll 'Em Up",
+    "city": "los angeles",
     "lat": 43,
-    "long": 56 
+
+"long": 56 ,
+"score": 6
+
   }
 ]
