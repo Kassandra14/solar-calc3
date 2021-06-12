@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 
 
@@ -36,9 +37,9 @@ function SearchForm(props) {
           placeholder="Type in your monthly electric cost"
           id="monthlyCost"
         />
-        <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
-          Search
-        </button>
+        
+        <Link to="/good" className="btn btn-success" onClick={props.handleFormSubmit}>Search</Link>
+        
       </div>
     </form>
   );

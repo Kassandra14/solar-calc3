@@ -25,38 +25,38 @@ function Profile(props) {
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <Jumbotron>
+            
               <h1>
                 Your Sites:
               </h1>
-            </Jumbotron>
+
+            
           </Col>
         </Row>
-    
+        <h2>Table here:</h2>
         <Row>
           <Col size="md-10 md-offset-1">
-             
+          </Col>
+        </Row>        
+        <Row>
+        <Row></Row>
+        <Row></Row>
+     
+        
+        <SaveButton to='/profile'>Save My Score</SaveButton>
+  </Row>
+    <Row>
+
+    <BackButton to='/about'>Back to SolarCalc</BackButton>
+    <Row>
+        <Col size="md-2">
+      
           </Col>
         </Row>
-        <Row>
-          <Col size="md-2">
-          <SaveButton to='/profile'>Save My Score</SaveButton>
-    </Col>
-    </Row>
-    <Row>
-    <BackButton to='/about'>Back to SolarCalc</BackButton>       
-    
+  </Row>  
+  </Container>
+    );
+  }
 
-     </Row>
-         
-     <Row>
-     <Col size="md-2">
-   
-       </Col>
-     </Row>
- </Container>
- );
-}  
-  
 
 export default Profile;

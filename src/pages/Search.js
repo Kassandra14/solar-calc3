@@ -5,8 +5,9 @@ import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { Redirect } from 'react-router'
+import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+import BackButton from '../components/BackButton'
 
 
 var lat = [];
@@ -59,7 +60,7 @@ class Search extends Component {
             var solar = (+Kwh / 30) / (annualDNI * 0.71);
             this.setState({solar: solar });
             console.log(this.state.solar);
-            if (solar >= 3) {
+            if (solar >= 6) {
               <Redirect to="/bad"/> 
         } else {
           <Redirect to="/good"/> 
@@ -110,6 +111,8 @@ class Search extends Component {
             search={this.state.search}
           />
           <SearchResults results={this.state.results} />
+
+          <BackButton to='/about'>Back to SolarCalc</BackButton>
         </Container>
       </div>
     );
