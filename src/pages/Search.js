@@ -7,7 +7,7 @@ import Alert from "../components/Alert";
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Redirect } from 'react-router'
-
+const withAuth = require('../utils/auth');
 
 var lat = [];
 var long = [];
@@ -34,7 +34,7 @@ class Search extends Component {
   handleCostChange = (e) => {
     this.setState({ cost: e.target.value });
   };
-  handleFormSubmit = (event) => {
+  handleFormSubmit =  (event) => {
     event.preventDefault();
     // var monthlyKwh = (this.state.search)
     API.getLatLong(this.state.city)
@@ -89,7 +89,8 @@ class Search extends Component {
   //   .catch(err => this.setState({ error: err.message }));
   // };
 
-  render() {
+  render( ) {
+   
     return (
       <div>
         <Container style={{ minHeight: "80%" }}>

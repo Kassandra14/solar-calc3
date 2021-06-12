@@ -21,6 +21,9 @@ Project.init(
   long: {
     type: DataTypes.INTEGER,
   },
+  score: {
+    type: DataTypes.INTEGER,
+  },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
