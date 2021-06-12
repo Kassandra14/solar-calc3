@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar2";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 
@@ -25,7 +26,7 @@ function App() {
 
       <Router>
       <div>
-        <Navbar />
+        <Navbar2 />
         <Wrapper>
       
 
