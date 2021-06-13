@@ -38,8 +38,8 @@ function SearchForm(props) {
           id="monthlyCost"
         />
         
-        <Link to="/good" className="btn btn-success" onClick={props.handleFormSubmit}>Search</Link>
-        
+        <button type="button" onClick={props.handleFormSubmit}>Search</button>
+
       </div>
     </form>
   );

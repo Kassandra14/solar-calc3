@@ -8,10 +8,17 @@ import API from "../utils/API";
 import "./style.css"
 import SaveButton from '../components/SaveButton'
 import BackButton from '../components/BackButton'
+import { ExternalLink } from 'react-external-link';
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 //import ResultsContainer from "../components/ResultsContainer";
 
 function Good(props) {
-
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+ 
+  
 
   return (
       <Container fluid>
@@ -35,14 +42,14 @@ function Good(props) {
         <Row></Row>
         <Row></Row>
         <ul>
-          <li>
-          https://www.seia.org/state-solar-policy/colorado-solar
+       <li>
+          <ExternalLink href="https://www.seia.org/state-solar-policy/colorado-solar"/>
           </li>
+          
+          
+          <ButtonComponent cssClass="e-success" a href="https://www.seia.org/state-solar-policy/colorado-solar" onClick={handleClick}>Clean Energy Authority</ButtonComponent>
           <li>
-          https://www.cleanenergyauthority.com/solar-rebates-and-incentives/colorado
-          </li>
-          <li>
-          https://www.solaramerica.com/list/?&mkwid=sbJcG2K8u&crid=492530465700&mp_kw=%2Bsolar%20%2Bco&mp_mt=b&pdv=c&utm_source=google&utm_medium=cpc&utm_campaign=SAM-GS-Colorado-Gen-BMM&campid=SAM-GS-Colorado-Gen-BMM&utm_term=%2Bsolar%20%2Bco&utm_adgroup=Solar+Companies&utm_match=b&utm_site=&gclid=Cj0KCQjwzYGGBhCTARIsAHdMTQzzJbTlie5thv7zGm_BwTFJv_HJQmC_mW5w_aW1gBZ5B9EhX9HrUbsaAn0LEALw_wcB
+          <ExternalLink href="https://www.solaramerica.com/list/?&mkwid=sbJcG2K8u&crid=492530465700&mp_kw=%2Bsolar%20%2Bco&mp_mt=b&pdv=c&utm_source=google&utm_medium=cpc&utm_campaign=SAM-GS-Colorado-Gen-BMM&campid=SAM-GS-Colorado-Gen-BMM&utm_term=%2Bsolar%20%2Bco&utm_adgroup=Solar+Companies&utm_match=b&utm_site=&gclid=Cj0KCQjwzYGGBhCTARIsAHdMTQzzJbTlie5thv7zGm_BwTFJv_HJQmC_mW5w_aW1gBZ5B9EhX9HrUbsaAn0LEALw_wcB" />
           </li>
         </ul>
         

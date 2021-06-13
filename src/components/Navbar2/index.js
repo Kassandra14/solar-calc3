@@ -8,6 +8,8 @@ import {
   NavBtn,
   NavBtnLink,
 } from './NavBarElements';
+import { FaSun } from "react-icons/fa";
+
   
 const Navbar = () => {
   return (
@@ -20,7 +22,7 @@ const Navbar = () => {
             About
           </NavLink>
           <NavLink to='/search' activeStyle>
-            Search
+          <FaSun /> Calc
           </NavLink>
           <NavLink to='/profile' activeStyle>
             Profile
