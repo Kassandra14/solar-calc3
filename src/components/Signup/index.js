@@ -1,6 +1,7 @@
 import React from "react";
 
 function Signup(props) {
+
   console.log(props);
   return (
     <form className="search">
@@ -44,3 +45,5 @@ function Signup(props) {
 
 
 export default Signup 
+
+

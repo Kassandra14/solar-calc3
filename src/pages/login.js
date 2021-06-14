@@ -2,9 +2,11 @@
 import Alert from "../components/Alert";
 import React, { Component } from "react";
 import Container from "../components/Container";
+
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 // import ScriptTag from 'react-script-tag';
+
 
 
 class login extends Component {
@@ -56,7 +58,8 @@ class login extends Component {
     
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      console.log("hit");
+      document.location.replace('/search');
     } else {
       alert(response.statusText);
     }
@@ -67,7 +70,7 @@ class login extends Component {
  signupFormHandler = async (event) => {
 
   event.preventDefault();
-  
+  console.log("hit22");
   const name = document.querySelector('#name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
@@ -113,6 +116,7 @@ render( ) {
         >
           {/* {this.state.error} */}
         </Alert>
+
   <Login 
   email = {this.state.email}
   password = {this.state.password}
@@ -122,6 +126,12 @@ render( ) {
  password =  {this.state.password}
   name = {this.state.name}
 >
+
+  <Login>
+
+  </Login>
+  <Signup>
+
 
   </Signup>
       </Container>
