@@ -59,10 +59,10 @@ class Search extends Component {
             var solar = (+Kwh / 30) / (annualDNI * 0.71);
             this.setState({solar: solar });
             console.log(this.state.solar);
-            if (solar >= 3) {
-              <Redirect to="/bad"/> 
+            if (this.solar >= 3) {
+          window.location.href="/Bad" 
         } else {
-          <Redirect to="/good"/> 
+          window.location.href="/Good" 
         }
             if (res.data.status === "error") {
               throw new Error(res.data);

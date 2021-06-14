@@ -24,7 +24,7 @@ function Bad(props) {
         
       </Col>
     </Row>
-    <h2>Your Solar Score is {SearchResults.results}</h2>
+    <h2>Your Solar Score is {props.results}</h2>
     <Row>
       <Col size="md-10 md-offset-1">
       </Col>
