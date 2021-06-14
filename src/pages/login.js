@@ -2,33 +2,53 @@
 import Alert from "../components/Alert";
 import React, { Component } from "react";
 import Container from "../components/Container";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
+// import ScriptTag from 'react-script-tag';
+
 
 class login extends Component {
   state = {
     name: "",
     password: "",
     email: "",
-    results: null,
+    results: "",
     error: "",
   };
 
-  
-  loginFormHandler = async (event) => {
 
+  loginpassword = (event) => {
+    this.setState({ password: event.target.value });
+  };
+  loginemail = (e) => {
+    this.setState({ email: e.target.value });
+  };
+  // handleCostChange = (e) => {
+  //   this.setState({ cost: e.target.value });
+  // };
+
+ 
+  loginFormHandler(event) {
+    console.log("hi");
   event.preventDefault();
   // Collect values from the login form
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
+ var email =  'amiko2k20@aol.com'
+
+  // document.querySelector('#password-login').value.trim();
+  var password = "password12345"
+  // document.querySelector('#password-login').value.trim();
+  this.setState({ email: email });
+  this.setState({ email: password });
   var body = {
   
     "email": email,
     "password": password
   }
-  
+ 
   if (body) {
   console.log(body);
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/users/login', {
+    const response =  fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify( body ),
       headers: { 'Content-Type': 'application/json' },
@@ -65,7 +85,7 @@ class login extends Component {
     });
     
     if (response.ok) {
-      document.location.replace('/info');
+     window.location.href ='/profile';
     } else {
       alert(response.statusText);
     }
@@ -89,16 +109,28 @@ render( ) {
         <h1 className="text-center">Enter your information:</h1>
         <Alert
           type="danger"
-          style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
+          // style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
         >
-          {this.state.error}
+          {/* {this.state.error} */}
         </Alert>
-  
+  <Login 
+  email = {this.state.email}
+  password = {this.state.password}
+ ></Login>
+  <Signup
+   email = {this.state.email}
+ password =  {this.state.password}
+  name = {this.state.name}
+>
+
+  </Signup>
       </Container>
     </div>
   );
 }
+
 }
+
 
 export default login;
 

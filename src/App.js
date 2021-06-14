@@ -12,7 +12,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import logout from "./pages/logout"
-import Calculator from './components/calculatorForm';
+import profile from "./pages/Profile"
+import withauth from '../src/utils/auth';
 //import Map from './Map';
 
 function App() {
@@ -27,10 +28,12 @@ function App() {
 
 
           <Route exact path="/about" component={About} />
+         < withauth>
           <Route exact path="/good" component={Good} />
           <Route exact path="/bad" component={Bad} />
+          </withauth>
           <Route exact path="/login" component={login} />
-
+          <Route exact path="/profile" component={profile} />
 
           <Route exact path="/logout" component={logout} />
 
